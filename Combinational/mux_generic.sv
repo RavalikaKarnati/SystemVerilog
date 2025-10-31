@@ -30,7 +30,10 @@ module mux_generic
     input logic [$clog2(NUM_OF_INPUTS)-1:0] sel,
     output logic [INPUT_WIDTH-1:0] f  
   );
-  
+
+ // assign f = a[sel];   // synthesized as Mx1 mux - picture1 in mux_generic.md
+
+ // Sythesized using 2x1 muxes - picture2 in mux_generic.md
   integer i;
   always @(*)  begin
     f = {INPUT_WIDTH{1'b0}};
