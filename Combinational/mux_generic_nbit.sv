@@ -5,7 +5,7 @@
 // 
 // Create Date: 10/30/2025 09:04:01 PM
 // Design Name: 
-// Module Name: mux_generic
+// Module Name: mux_generic_nbit
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -21,7 +21,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module mux_generic
+module mux_generic_nbit
  #( parameter NUM_OF_INPUTS = 5,
     parameter INPUT_WIDTH = 4
   )
