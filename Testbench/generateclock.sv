@@ -1,4 +1,9 @@
-`timescale 1ns / 1ps
+// `timescale timeunit / timeprecision = 1 ns / 1ps = 10^3 = So time is rounded till 3 decimal points
+// eg: #62.25 ==> 62.25
+//     #62.251 ==> 62.251
+//     #62.2514 ==> 62.251
+//     #62.2516 ==> 62.252
+`timescale 1ns / 1ps  
  
 module tb();
  
