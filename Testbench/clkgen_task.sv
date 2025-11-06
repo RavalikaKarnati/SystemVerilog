@@ -53,12 +53,17 @@ initial begin
 calc(100_000_000, 0.1, 2, phase, ton, toff);
 clkgen(phase, ton, toff);
 end
+
+initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars;
+end
  
  
  
-  initial begin
+initial begin
     #200;
     $finish();
-  end
+end
   
 endmodule
