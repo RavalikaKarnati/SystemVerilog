@@ -1,7 +1,7 @@
 
 when we are generating clock where we get the floating number for the half clock period, you need to have a good time precision  to generate that kind of period.    
  
- `timescale __timeunit________ / _____timeprecision_____                       /          
+ `timescale __timeunit________ / _____timeprecision_____                               
  
  `timescale 1ns / 1ps   --> 1ns --> TimeUnit      
                          --> 1ps --> TimePrecison       
