@@ -14,17 +14,17 @@ Two fundamental SystemVerilog Constructs which we need to know for generation of
 we can have multiple initial begin blocks in the testbench top code. There is no restriction on how many initial blocks you have in your testbench code, 
 and all of them will start executing at 0ns
 
-Usauge of Initial begin statements:
-1. Initialize a global signals clk, rst\
-    reg clk;\
-    reg rst;\
-    initial begin\
-      clk = 1'b0;\
-      rst = 1'b0;\
+Usauge of Initial begin statements:  
+1. Initialize a global signals clk, rst  
+    reg clk;  
+    reg rst;  
+    initial begin  
+      clk = 1'b0;  
+      rst = 1'b0;  
     end
    
-2. Generating random signals for data/ control or generate clk or rst\
-   initial begin\
+2. Generating random signals for data/ control or generate clk or rst  
+   initial begin  
     rst = 1'b0;\
     #30;\
     rst = 1'b1;\
