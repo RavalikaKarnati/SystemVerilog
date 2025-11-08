@@ -46,7 +46,7 @@ Usauge of Initial begin statements:
     end
 5. Analyize variable values on console\
    $monitor("Temp: %0d at time: %0t", temp, $time);\
-   $display();\
+   $display();
 6. Finish or stop simulation by forcefully calling $finish or $stop // call finish system task\
    initial begin\
    #200;\
