@@ -27,7 +27,7 @@ module tb();
 // always #20 clk25 = ~clk25;
  
  // generate clocks without phase shift
-  always begin
+  always begin // // whenever you use an always block without a sensitivity list, see that you forcefully call a finish after you execute your stimuli for the specified duration
   #5;
    clk50 = 1;
   #10;
@@ -51,7 +51,7 @@ module tb();
  
   initial begin
     #200;
-    $finish();
+   $finish();   // whenever you use an always block without a sensitivity list, see that you forcefully call a finish after you execute your stimuli for the specified duration
   end
   
 endmodule
