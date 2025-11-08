@@ -19,8 +19,8 @@ Usauge of Initial begin statements:
     reg clk;
     reg rst;
     initial begin
-      clk = 0;
-      rst = 0;
+      clk = 1'b0;
+      rst = 1'b0;
       a   = 0;
       b   = 0;
     end
