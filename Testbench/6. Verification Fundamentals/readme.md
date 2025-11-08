@@ -27,7 +27,14 @@ Once the verification plan is ready, there are two alternatives for applying tes
    - This method of applying test cases to a DUT is referred to as a DIRECTED TESTS.
    - Disadvantages:
    - If the design is simple and you have less number of testcase then DT is good, but as no. of testcases increases and the time span to verify the complete behavior of a DUT decreases, we have an alternative method             referred to as a constrained random tests.
-     
+     <img width="577" height="341" alt="image" src="https://github.com/user-attachments/assets/7566c3cb-4ad0-4258-b96d-b8459195e1c2" />
+
 **CONSTRAINED RANDOM TESTS**:   
-   - Here now we won't apply each and every test case to the DUT. Instead, we will develop a cover group for each test case. For every test case, we create an independent cover group.
-   - In each cover group, we list the levels of signals expected for a that specific test case.
+   - Here now we won't apply each and every test case to the DUT. Instead, we will develop a **covergroup** for each test case. For every test case, we create an independent cover group.
+   - In each cover group, we list the levels of signals ( also called as **coverpoints** ) expected for a that specific test case.
+   - we write a cover group and compute the functional coverage, ensuring the targeted signal values are covered or not. For example, when wr==1, we get a hit here, and for an address from 0 to 10, we get a hit there. If      all cover points are covered, it means the signal values expected in testcase1 were successfully applied to the DUT. Without applying the test case, just analyzing the cover group and its hits allows us to                verify if the testcase was applied to the DUT.
+   - In constrained random testing, we use a **random signal generator**, usually with **constraints**, to get the values we are expecting. These signals are applied to the DUT, and the DUT's response is analyzed using a scoreboard to check for correctness. Additionally, functional coverage is calculated based on the verification plan. Depending on the random signals generated, we analyze the hits for the specific cover group to verify test case coverage. If not all test cases are covered initially, constraints are modified, and the process is repeated until all test cases are covered.
+<img width="936" height="747" alt="image" src="https://github.com/user-attachments/assets/44e5bf06-ffc4-4cd3-bc1d-9108e6296921" />
+
+**DIRECTED TESTS VS CONSTRAINED RANDOM TESTS**
+- Comparing DT to CRT, DT proceeds incrementally test case1, then the second, third, and so on. This takes a finite amount of time to achieve 100% verification. In CRT, developing the functional coverage model consumes some time initially. However, with an optimized setup, we may achieve 100% functional coverage in the first attempt, verifying all expected functionalities. Thus,constrained random testing is generally much faster compared to directed testing.
