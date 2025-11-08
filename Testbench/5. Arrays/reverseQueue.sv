@@ -8,17 +8,18 @@ int fix_arr[20];
 
 int queue_arr[$];
 
-foreach (fix_arr[i]) begin
-     fix_arr[i] = $urandom;
-end
-$display("fixed size array: %0p", fix_arr)
+// foreach (fix_arr[i]) begin
+//      fix_arr[i] = $urandom;
+// // end
+// $display("fixed size array: %0p", fix_arr)
 
 for ( int i=0; i<20; i++ ) begin
+  fix_arr[i] = $urandom;
 //queue_arr[i] = fix_arr[fix_arr.size() - 1 -i];
-  queue_arr.pop_front(fix_arr[i]);
+  queue_arr.push_front(fix_arr[i]);
 end
-
-  $display("queue array: %0p", queue_arr)
+ $display("fixed size array: %0p", fix_arr)
+ $display("queue array: %0p", queue_arr)
 
 endmodule
 
