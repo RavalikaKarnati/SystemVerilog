@@ -13,7 +13,7 @@
          // $finish will terminate the simulation. If you are using Modelsim or  
          // Questa, $finish will ask you if you want to exit.   
          //$stop;   
-        $finish;  
+    $finish;  
     end  
 endmodule  
 
