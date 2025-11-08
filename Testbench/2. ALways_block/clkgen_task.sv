@@ -1,4 +1,4 @@
-/////////////////////////////////////////// Method-1 : generating Clock ///////////////////////////////////////
+/////////////////////////////////////////// Method-2 : generating Clock ///////////////////////////////////////
 `timescale 1ns / 1ps
  
 module tb();
@@ -19,7 +19,7 @@ module tb();
     #toff;
     end
   endtask
-*/
+
   initial begin
     $dumpfile("dump.vcd");
     $dumpvars;
@@ -30,7 +30,7 @@ module tb();
   end
 endmodule
 
-/////////////////////////////////////////// Method-2 : generating Clock ///////////////////////////////////////
+/////////////////////////////////////////// Method-3 : generating Clock ///////////////////////////////////////
  
 `timescale 1ns / 1ps
 module tb();
@@ -72,9 +72,7 @@ initial begin
     $dumpfile("dump.vcd");
     $dumpvars;
 end
- 
- 
- 
+
 initial begin
     #200;
     $finish();
