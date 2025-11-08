@@ -25,30 +25,30 @@ Usauge of Initial begin statements:
    
 2. Generating random signals for data/ control or generate clk or rst  
    initial begin  
-    rst = 1'b0;\
-    #30;\
-    rst = 1'b1;\
+    rst = 1'b0;  
+    #30;  
+    rst = 1'b1;  
    end
    
-   reg [3:0] temp;\
-   initial begin\
-     temp = 4'b0100;\
-     #10;\
-     temp = 4'b1100;\
-     #10;\
-     temp = 4'b1101\
+   reg [3:0] temp;  
+   initial begin  
+     temp = 4'b0100;  
+     #10;  
+     temp = 4'b1100;  
+     #10;  
+     temp = 4'b1101  
    end
    
 4. Waveform viewer // run system task at the start of simulation\
-    initial begin\
-       $dumpfile("dump.vcd");\
-       $dumpvars;\
+    initial begin  
+       $dumpfile("dump.vcd");  
+       $dumpvars;  
     end
-5. Analyize variable values on console\
-   $monitor("Temp: %0d at time: %0t", temp, $time);\
+5. Analyize variable values on console  
+   $monitor("Temp: %0d at time: %0t", temp, $time);  
    $display();
-6. Finish or stop simulation by forcefully calling $finish or $stop // call finish system task\
-   initial begin\
-   #200;\
-   $finsh;\
+6. Finish or stop simulation by forcefully calling $finish or $stop // call finish system task  
+   initial begin  
+   #200;  
+   $finsh;  
    end
