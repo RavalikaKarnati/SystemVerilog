@@ -26,7 +26,7 @@ Usauge of Initial begin statements:
     end
    
 3. Waveform viewer
-    *initial begin
+    initial begin
        $dumpfile("dump.vcd");
        $dumpvars;
-    end*
+    end
