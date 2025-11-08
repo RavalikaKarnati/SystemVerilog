@@ -1,8 +1,6 @@
 <img width="1061" height="407" alt="image" src="https://github.com/user-attachments/assets/05e8d639-7d01-4dd4-a152-4b7b773a5cd3" />
 
-Duty cycle = Ton  
-            --------------------   
-            Ton + Toff  --> clock period  
+Duty cycle =    Ton  / Ton + Toff  --> clock period   
 
 if user specify Frequency and Duty Cycle --> two parameters which are utilized to generate clock
 third parameter is phase difference if there are two or more clocks.
