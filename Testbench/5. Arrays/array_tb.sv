@@ -98,6 +98,8 @@ module tb;
     arr_2[i] = arr_1[i];  // copying contents of arr_1 into arr_2
   end 
     //(or) arr_2 = arr_1;  // copying contents of arr_1 into arr_2- this also works
+    //    arr_3[8] = arr_1[6]; // using this will create an compile error while copying since number of elements in arr_1 is different than arr_3
+    //    arr_4[6] = arr_1[6]; //using this will create an compile error while copying since data type of arr_1 and arr_4 is different
     $display("arr_2 elements are %0p", arr_2);
   end 
 endmodule 
