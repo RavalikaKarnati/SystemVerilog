@@ -9,11 +9,14 @@
                           - The description indicates the specific values applied to the DUT    
            3. Feature Covered - what feature is covered by running this testcase  
               
-Summary: The process starts with a specification sheet. By analyzing the specification sheet, you recognize all the signals in the DUT and their behaviors. By analyzing the waveforms in the specification sheet, you can understand the system's behavior. The next step is to prepare the verification plan.This involves listing important features to test the basic functionality of the design. A series oftest cases are listed to apply to the DUT. For each test case, the description specifies what to do. For instance, for the reset signal, the description details the values of reset to apply to the DUT and the specific situations in which to apply them. This represents the description. The expected behavior upon applying the signal to the DUT represents the feature covered.  
+Summary: The process starts with a specification sheet. By analyzing the specification sheet, you recognize all the signals in the DUT and their behaviors. By analyzing the waveforms in the specification sheet, you can understand the system's behavior. The next step is to prepare the verification plan.This involves listing important features to test the basic functionality of the design. A series oftest cases are listed to apply to the DUT. For each test case, the description specifies what to do. For instance, for the reset signal, the description details the values of reset to apply to the DUT and the specific situations in which to apply them. This represents the description. The expected behavior upon applying the signal to the DUT represents the feature covered. 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 For CRV: we have few extra features that we add to the Verifictaion Plan. Define Covergroup for each testcase
 <img width="306" height="337" alt="image" src="https://github.com/user-attachments/assets/64e8d4e0-dc74-4ee7-bbc0-7cfe81c0ff09" />
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Once the verification plan is ready, there are two alternatives for applying tests to the DUT.   
 
 2. **Types of Verifictaion**:
