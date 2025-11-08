@@ -1,5 +1,5 @@
-    // Generate a clock with a separate always block.   
-  mopdule tb();  
+   // Generate a clock with a separate always block.   
+  module tb();  
     reg clk = 0;    
     always begin : generate_clock    
         forever #5 clk <= !clk;    
@@ -15,4 +15,18 @@
          //$stop;   
         $finish;  
     end  
+endmodule  
+
+
+module tb();    
+    reg clk = 0;   
+    // We now use an initial block with a forever loop, which enables us to  
+    // disable the block at the end of the simulation. The simulation then  
+    // ends a little more gracefully than calling $finish.  
+    initial begin : generate_clock  
+        forever #5 clk <= !clk;  
+    end  
+// In this example, we disable the clock generation, which causes the  
+// simulation to finish with having to call $finish.  
+disable generate_clock;  
 endmodule  
