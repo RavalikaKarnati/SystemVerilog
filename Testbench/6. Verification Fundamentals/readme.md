@@ -28,5 +28,6 @@ Once the verification plan is ready, there are two alternatives for applying tes
    - Disadvantages:
    - If the design is simple and you have less number of testcase then DT is good, but as no. of testcases increases and the time span to verify the complete behavior of a DUT decreases, we have an alternative method             referred to as a constrained random tests.
      
-**CONSTRAINED RANDOM TESTS**:     
-
+**CONSTRAINED RANDOM TESTS**:   
+   - Here now we won't apply each and every test case to the DUT. Instead, we will develop a cover group for each test case. For every test case, we create an independent cover group.
+   - In each cover group, we list the levels of signals expected for a that specific test case.
