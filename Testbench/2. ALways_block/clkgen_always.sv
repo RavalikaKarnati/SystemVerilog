@@ -18,8 +18,9 @@ module tb();
     clk = 1'b0;
     clk50 = 0; 
   end
-  
-  always #5 clk = ~clk;
+
+//  always #(clock_period/2) clk = ~clk;
+  always #5 clk = ~clk; // #5 is half clock period
   
 // generate clocks with phase shift
 // always #10 clk50 = ~clk50;
