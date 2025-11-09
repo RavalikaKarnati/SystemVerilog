@@ -64,5 +64,8 @@ task(a,b); // a--> x, b --> y
 
 task automatic add( ref bit [1:0] a, b) endtask   
 function automatic bit [1:0] add( ref  bit [1:0] a, b) endfunction   
+
+![IMG_2060](https://github.com/user-attachments/assets/3b18f2e5-25d4-4177-969d-1dd1336ed758)
+
           
    
