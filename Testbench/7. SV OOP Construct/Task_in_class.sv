@@ -11,7 +11,7 @@ class custom
   endfunction
 
   task display();
-     $display("data1 : %0d, data2 : %0d, data3 : %0d", f.data1, f.data2, f.data3);
+     $display("data1 : %0d, data2 : %0d, data3 : %0d", data1, data2, data3);
   endtask
 endclass
 
