@@ -1,5 +1,5 @@
 The fundamental construct that we use in building the components of SystemVerilog is the class construct,   
-<img width="905" height="497" alt="image" src="https://github.com/user-attachments/assets/1f3b18ac-bd95-4a80-8402-b452a233bcae" />
+<img width="1056" height="608" alt="image" src="https://github.com/user-attachments/assets/bf5b7fcf-0b67-4547-b952-453716c99cf4" />
 
 **1. DATAMEMBERS**:  
 
@@ -25,6 +25,34 @@ endtask;
 Task can be used: TIme depedent expressions, Scheduling processes in class.  
 functions can be used : Printing values of Data members, initializing values of variables, TIme independent expressions, return data from class.  
 
+------------------------------------------------
+**3. PASS BY VALUE & PASS BY REFERENCE:**
+_PASS BY VALUE_: When we call a task with any variables(defined in main program), the arguments inside task/function definition locally creates copy(memory) of those variables and once execution of task/function is completed that memory is cleaned up. So if any changes or updates done to the arguments of the Task/function by the execution of that task/function will not reflect at the variables(defined in main program) that we used to call the task. This is becuase of PASS BY VALUE.  
+So, Whenever we use pass by value while calling Task/function it creates a copy of passed variable values locally in a stack.  
 
+The fundamental thing is, for a function or task using pass by value, we have an independent stack storing local copies of the variables. Those will be incremented, or updated, but the variables in the main program   
+or test bench stack have a different stack. They will not see any changes or updates as we only update the function's local copies.   
 
----------------------------------------
+Eg:
+task add( int x, int y);
+x = x+5;      // we are trying to chnage the value of X which is passed from main program "a" where task is called. But here we are not changing the value "a" in the main program. That is refred as "PASS BY VALUE"
+              // Even though we update x here by incrementing it by 5, whatever value the user specifies, since these are local to the function, even though we update the argument, the changes won’t be reflected in the                 // variables present in the main program. Here in the main program, it will still be a and b.  
+sum = x+y;
+endtask;
+
+task(a,b); // a--> x, b --> y
+
+_PASS BY REFERENCE_(ref keyword): When we call a task with any variables(defined in main program), the arguments inside task/function definition are nothing but pointers which are storing/refering to the address of variables (defined in main program). So, any update/changes done by execution of task/function also reflects at the variables(defined in main program). This is PASS BY REFERENCE
+
+Eg:  we prefer PASS BY REFERENCE when working with arrays where you want to update the array after processing
+Eg: But there might be situation where you want to restrict task or function from changing the value so you use **"const ref int a[]"**
+Eg:
+task add( ref int x, int y);
+x = x+5;      // 
+              //    
+              //  
+sum = x+y;
+endtask;
+
+task(a,b); // a--> x, b --> y
+   
