@@ -58,7 +58,7 @@ endtask;
 
 task(a,b); // a--> x, b --> y
 
-**NOTE:** If we are using ref inside an arguments (replacing Direction of the argument)and also Task type should be of automatic task / automatic function.
+**NOTE:** If we are using ref inside an arguments (replacing Direction of the argument)and also Task type should be of automatic task / automatic function.   
           task automatic add( ref bit [1:0] a, b) endtask  
           function automatic bit [1:0] add( ref  bit [1:0] a, b) endfunction  
    
