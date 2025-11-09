@@ -45,6 +45,8 @@ task(a,b); // a--> x, b --> y
 _PASS BY REFERENCE_(ref keyword): When we call a task with any variables(defined in main program), the arguments inside task/function definition are nothing but pointers which are storing/refering to the address of variables (defined in main program). So, any update/changes done by execution of task/function also reflects at the variables(defined in main program). This is PASS BY REFERENCE
 
 Eg:  we prefer PASS BY REFERENCE when working with arrays where you want to update the array after processing
+   function automatic void init_arr(ref bit[3:0] x[15]);  
+   endfunction  
 Eg: But there might be situation where you want to restrict task or function from changing the value so you use **"const ref int a[]"**
 Eg:
 task automatic add( ref int x, int y);
@@ -55,4 +57,8 @@ sum = x+y;
 endtask;
 
 task(a,b); // a--> x, b --> y
+
+**NOTE:** If we are using ref inside an arguments (replacing Direction of the argument)and also Task type should be of automatic task / automatic function.
+          task automatic add( ref bit [1:0] a, b) endtask  
+          function automatic bit [1:0] add( ref  bit [1:0] a, b) endfunction  
    
