@@ -1,10 +1,11 @@
-STUDY ORDER:
-class.sv
-Task.sv
-function.sv
-PassByValue&PassByRef.sv
-UsingArrayInFunction.sv
-Task&function_in_class.sv
+STUDY ORDER:   
+class.sv   
+Task.sv   
+function.sv   
+PassByValue&PassByRef.sv   
+UsingArrayInFunction.sv   
+Task&function_in_class.sv   
+
 
 
 The fundamental construct that we use in building the components of SystemVerilog is the class construct,   
