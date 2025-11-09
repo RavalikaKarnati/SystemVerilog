@@ -1,3 +1,12 @@
+STUDY ORDER:
+class.sv
+Task.sv
+function.sv
+PassByValue&PassByRef.sv
+UsingArrayInFunction.sv
+Task&function_in_class.sv
+
+
 The fundamental construct that we use in building the components of SystemVerilog is the class construct,   
 <img width="1056" height="608" alt="image" src="https://github.com/user-attachments/assets/bf5b7fcf-0b67-4547-b952-453716c99cf4" />
 
