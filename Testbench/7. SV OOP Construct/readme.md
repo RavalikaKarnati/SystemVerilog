@@ -47,7 +47,7 @@ _PASS BY REFERENCE_(ref keyword): When we call a task with any variables(defined
 Eg:  we prefer PASS BY REFERENCE when working with arrays where you want to update the array after processing
 Eg: But there might be situation where you want to restrict task or function from changing the value so you use **"const ref int a[]"**
 Eg:
-task add( ref int x, int y);
+task automatic add( ref int x, int y);
 x = x+5;      // 
               //    
               //  
