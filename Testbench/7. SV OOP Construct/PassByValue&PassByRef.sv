@@ -42,7 +42,8 @@ module tb;
     a =1;
     b =2;
     swap(a,b);
-    $display("Value of a: %0d and b: %0d", a,b);
+    $display("Value of a: %0d and b: %0d", a,b);  // this points to the actual memory of the main code, or this points to the variables that are in the main code, if you try to change the value of
+                                                  // the variable, or an argument, these changes will automatically be reflected in the variables which are present in the testbench. 
   end
   
 endmodule
@@ -50,3 +51,30 @@ endmodule
 // OUTPUT
 // value of a : 2 and b: 1
 // value of a : 2 and b: 1
+
+/////////////////////////////////////////////////// PASS BY REFERENCE with const////////////////////////////////////////////////////////////////////
+module tb;
+  task automatic swap ( const ref input bit [1:0] a, ref input bit [1:0] b);  // you don't want to chnage the reference data and restrict the fucn or task from the chnaging the value you add "const"
+                                                                               // here you are restrict the change of a from main program but "b" will be chnaged.
+    bit [1:0] temp;
+    temp = a;
+//    a = b;   // we have use const for "a" but trying to update the value of a with b, this will through compile error.
+             // let's say if we reomve "a=b", b will be updated with temp and a remains the same as main testbench.
+    b = temp;
+    $display("value of a : %0d and b: %0d", a, b);
+  endtask
+
+  bit [1:0] a, b;
+  initial begin
+    a =1;
+    b =2;
+    swap(a,b);
+    $display("Value of a: %0d and b: %0d", a,b);  // this points to the actual memory of the main code, or this points to the variables that are in the main code, if you try to change the value of
+                                                  // the variable, or an argument, these changes will automatically be reflected in the variables which are present in the testbench. 
+  end
+  
+endmodule
+
+// OUTPUT
+// value of a : 1 and b: 1
+// value of a : 1 and b: 1
