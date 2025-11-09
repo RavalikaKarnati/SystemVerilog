@@ -47,7 +47,9 @@ _PASS BY REFERENCE_(ref keyword): When we call a task with any variables(defined
 Eg:  we prefer PASS BY REFERENCE when working with arrays where you want to update the array after processing
    function automatic void init_arr(ref bit[3:0] x[15]);  
    endfunction  
-Eg: But there might be situation where you want to restrict task or function from changing the value so you use **"const ref int a[]"**
+Eg: But there might be situation where you want to restrict task or function from changing the value so you use **"const ref int a[]"**   
+    task automatic add(const ref bit [1:0] a, b) endtask    
+    function automatic bit [1:0] add( const ref  bit [1:0] a, b) endfunction   
 Eg:
 task automatic add( ref int x, int y);
 x = x+5;      // 
@@ -59,6 +61,7 @@ endtask;
 task(a,b); // a--> x, b --> y
 
 **NOTE:** If we are using ref inside an arguments (replacing Direction of the argument)and also Task type should be of automatic task / automatic function. whenever you use pass by reference, you need to add automatic   storage for your task and function. that is, after the keyword that is function or task, you need to add the automatic keyword   
+
 task automatic add( ref bit [1:0] a, b) endtask   
 function automatic bit [1:0] add( ref  bit [1:0] a, b) endfunction   
           
