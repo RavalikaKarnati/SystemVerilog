@@ -58,7 +58,8 @@ endtask;
 
 task(a,b); // a--> x, b --> y
 
-**NOTE:** If we are using ref inside an arguments (replacing Direction of the argument)and also Task type should be of automatic task / automatic function.   
-          task automatic add( ref bit [1:0] a, b) endtask  
-          function automatic bit [1:0] add( ref  bit [1:0] a, b) endfunction  
+**NOTE:** If we are using ref inside an arguments (replacing Direction of the argument)and also Task type should be of automatic task / automatic function. whenever you use pass by reference, you need to add automatic   storage for your task and function. that is, after the keyword that is function or task, you need to add the automatic keyword   
+task automatic add( ref bit [1:0] a, b) endtask   
+function automatic bit [1:0] add( ref  bit [1:0] a, b) endfunction   
+          
    
