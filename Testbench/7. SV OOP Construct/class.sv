@@ -14,11 +14,14 @@ endclass
 //    That is what we refer to as dynamic objects versus static objects, The modules defined here are static objects, 
 //    so they are created at the start of a simulation and will stay till the end of the simulation, even if you do not utilize them during the entire simulation,
 
+
+// Now let's try utilize a class inside a module, we can utilize in another class, package etc.,
 module tb();
   first f;  // create a handler --> start with the class name, followed by a user-defined name for the handler. here f is the handler
-//  f.data;   // To access the data members or methods in a class
-//  f.data2;  // 
-
+            //  no memory is allocated to class and f points to a null
+ $display("Display1: Value of the data: %0d and data2 : %0d", f.data, f.data2); // if we use display without creating a constructor which means memory is not allocated, it gives NULL pointer error
+  
+  // all classes are dynamic. So we need to tell simulator when to allocate memory/ delete memory. So to allocate memory we create a object by adding a constructor
   //  we need to create a constructor that specifies when to create an object of a class. This is what we are doing to dynamically, when we need a class object, we create a constructor
   initial begin
     f = new();  // As soon as you add a constructor to the handler, memory is allocated for the class where the values of its data members will be stored, along with methods
@@ -26,11 +29,24 @@ module tb();
                 // Additionally, data members are initialized to their default values if the user does not initialize them. For a bit type, which represents a two-state value,
                 // the default value is zero. For a four-state value (like reg), it will be initialized to x
     #1;
-    $display("Value of the data: %0d and data2 : %0d", f.data, f.data2);
+    $display("Display2:Value of the data: %0d and data2 : %0d", f.data, f.data2);
+
+    // Now let's try to add values to the data memebers/properties
+    // if we wan't to access Data members or methods of a class so, 'f' will act like a handler 
+     f.data = 3'b101; 
+     f.data2= 2'b10; 
+     #1;
+     $display("Display3: data: %0d and data2: %0d",f.data,f.data2);
+    
+     f = null ; // to deallocate the memory assigned to a class
+     #1;
+    $display("Display4: data: %0d and data2: %0d",f.data,f.data2);
   end
   
 endmodule
 
 // OUTPUT:
-#KERNEL : Value of the data: 0 and data2 0  // as data and data2 are bit datatype, default value is 0
-#KERNEL : Value of the data: X and data2 X  // if data and data2 are chnaged to reg datatype, default value is x
+#KERNEL : fatal error : NULL POINTER ACCESS
+#KERNEL : Display2: Value of the data: 0 and data2 0  // as data and data2 are bit datatype, default value is 0
+#KERNEL : Display3: Value of the data: X and data2 X  // if data and data2 are chnaged to reg datatype, default value is x
+#KERNEL : fatal error : NULL POINTER ACCESS
