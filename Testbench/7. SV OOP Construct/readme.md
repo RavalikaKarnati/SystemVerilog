@@ -4,7 +4,9 @@ Task.sv
 function.sv   
 PassByValue&PassByRef.sv   
 UsingArrayInFunction.sv   
-Task&function_in_class.sv   
+function_in_class.sv   
+Task_in_class.sv   
+class_in_class.sv  
 
 
 
