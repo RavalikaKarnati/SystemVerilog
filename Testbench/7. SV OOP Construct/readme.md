@@ -83,8 +83,8 @@ function automatic bit [1:0] add( ref  bit [1:0] a, b) endfunction
 ![IMG_2060](https://github.com/user-attachments/assets/3b18f2e5-25d4-4177-969d-1dd1336ed758)  
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------          
-**4.CUSTOM CONSTRUCTOR:**      
-Will start using Functions and Task inside a class  
+**4.CUSTOM CONSTRUCTOR:**
+Will start using Functions and Task inside a class   
 (A) SPECIAL FUNCTION in SV: that won't need any return type(also we don't to use void)  
 function new();  
 endfunction  
@@ -93,8 +93,9 @@ endfunction
 when we wan't to use same name for data members of class and arguments then to refer/differentiate to a data member of a class we use this.class memeber keyword  
 (D) When We have multiple arguments, how do we specify or recognize the sequence of arguments while calling the functions:,  
 a) we could follow the position based b) name based with help of "." (like we use during module instantiation)  
-(E) Using Task inside a class and accessing it   
-(F) Basic function inside a class and accessign it   
+(E) Using Task inside a class and accessing it  
+(F) Basic function inside a class and accessign it  
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------          
 **5.COPYING OBJECT:**  
 
