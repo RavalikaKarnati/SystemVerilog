@@ -80,15 +80,30 @@ task(a,b); // a--> x, b --> y
 task automatic add( ref bit [1:0] a, b) endtask   
 function automatic bit [1:0] add( ref  bit [1:0] a, b) endfunction   
 
-![IMG_2060](https://github.com/user-attachments/assets/3b18f2e5-25d4-4177-969d-1dd1336ed758)
+![IMG_2060](https://github.com/user-attachments/assets/3b18f2e5-25d4-4177-969d-1dd1336ed758)  
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------          
-COPYING OBJECT :  
+**4.CUSTOM CONSTRUCTOR:**      
+Will start using Functions and Task inside a class  
+(A) SPECIAL FUNCTION in SV: that won't need any return type(also we don't to use void)  
+function new();  
+endfunction  
+(B) SPECIAL FUNCTION with 1 argument in it and PASSING 1 value from CONSTRUCTOR itself  
+(C) this.class_datamember operator: SPECIAL FUNCTION with many arguments and arguments name is same as data memebers name in class.  
+when we wan't to use same name for data members of class and arguments then to refer/differentiate to a data member of a class we use this.class memeber keyword  
+(D) When We have multiple arguments, how do we specify or recognize the sequence of arguments while calling the functions:,  
+a) we could follow the position based b) name based with help of "." (like we use during module instantiation)  
+(E) Using Task inside a class and accessing it   
+(F) Basic function inside a class and accessign it   
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------          
+**5.COPYING OBJECT:**  
 
  <img width="752" height="372" alt="image" src="https://github.com/user-attachments/assets/817dfe8e-7ade-4155-8fb8-9f4922467648" />
 
  1. NORMAL COPY:   
  2. CUSTOM METHOD:   
  3. SHALLOW COPY:   
- 4. DEEP COPY:   
+ 4. DEEP COPY:     
   
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------          
+**6.INHERITANCE:**  
