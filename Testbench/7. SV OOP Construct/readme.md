@@ -83,6 +83,7 @@ function automatic bit [1:0] add( ref  bit [1:0] a, b) endfunction
 ![IMG_2060](https://github.com/user-attachments/assets/3b18f2e5-25d4-4177-969d-1dd1336ed758)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------          
-COPYING OBJECT :
+COPYING OBJECT :  
+
  <img width="752" height="372" alt="image" src="https://github.com/user-attachments/assets/817dfe8e-7ade-4155-8fb8-9f4922467648" />
   
