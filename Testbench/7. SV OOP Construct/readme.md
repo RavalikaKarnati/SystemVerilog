@@ -101,7 +101,7 @@ a) we could follow the position based b) name based with help of "." (like we us
 
  <img width="752" height="372" alt="image" src="https://github.com/user-attachments/assets/817dfe8e-7ade-4155-8fb8-9f4922467648" />
 
- 1. NORMAL COPY:   
+ 1. NORMAL COPY:   using another handler and adding a constructor to the new handler
  2. CUSTOM METHOD:   
  3. SHALLOW COPY:   
  4. DEEP COPY:     
