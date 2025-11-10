@@ -101,10 +101,19 @@ a) we could follow the position based b) name based with help of "." (like we us
 
  <img width="752" height="372" alt="image" src="https://github.com/user-attachments/assets/817dfe8e-7ade-4155-8fb8-9f4922467648" />
 
- 1. NORMAL COPY:   using another handler and adding a constructor to the new handler
- 2. CUSTOM METHOD:   
- 3. SHALLOW COPY:   
- 4. DEEP COPY:     
+ 1. NORMAL COPY: Create a new classvariable/handler and add a constructor to the exisiting handler that keeps the original
+                  first f1;
+                  first f2;  
+                  f1 = new ();
+                  f2 = new f1; // creates a new copy               
+ 3. CUSTOM METHOD:   we can use this method and above normal method when we don't have class inside a class   
+                   i. Add function inside class and Refer to add a constructor to the function name.   
+                   ii. So this will create an object, and once you have an object, you could just replace the data members of that   object with the data of a class.   
+                   iii. In the testbench, you'll just call the custom method (function) that we have added, and this will return an object which we will store in the object where
+
+we want to keep the data, 
+ 5. SHALLOW COPY:   
+ 6. DEEP COPY:     
   
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------          
 **6.INHERITANCE:**  
