@@ -2,7 +2,7 @@
 
 class first;
   bit [2:0] data;  // declaring the data members of a class first
-  bit [1:0] date2; // declaring the data members of a class first
+  bit [1:0] data2; // declaring the data members of a class first
 endclass
 
 // after finishing the declaration of a class, to utilize the class in the module, first create a handler
@@ -19,6 +19,7 @@ endclass
 module tb();
   first f;  // create a handler --> start with the class name, followed by a user-defined name for the handler. here f is the handler
             //  no memory is allocated to class and f points to a null
+  first f2; // where we want to keep the original data as it is and utilize a copy of the original data for processing
  $display("Display1: Value of the data: %0d and data2 : %0d", f.data, f.data2); // if we use display without creating a constructor which means memory is not allocated, it gives NULL pointer error
   
   // all classes are dynamic. So we need to tell simulator when to allocate memory/ delete memory. So to allocate memory we create a object by adding a constructor
@@ -46,7 +47,34 @@ module tb();
 endmodule
 
 // OUTPUT:
-#KERNEL : fatal error : NULL POINTER ACCESS
-#KERNEL : Display2: Value of the data: 0 and data2 0  // as data and data2 are bit datatype, default value is 0
-#KERNEL : Display3: Value of the data: X and data2 X  // if data and data2 are chnaged to reg datatype, default value is x
-#KERNEL : fatal error : NULL POINTER ACCESS
+//KERNEL : fatal error : NULL POINTER ACCESS
+//KERNEL : Display2: Value of the data: 0 and data2 0  // as data and data2 are bit datatype, default value is 0 // // if data and data2 are chnaged to reg datatype, default value is x
+//kERNEL : Display3: Value of the data: 5 and data2 2  
+//KERNEL : fatal error : NULL POINTER ACCESS
+
+
+//////////////////////////////////// copying object by keeping original class ///////////////////////////////////
+// where we want to keep the original data as it is and utilize a copy of the original data for processing
+class first;
+  int data;  // declaring the data members of a class first
+  int data2; // declaring the data members of a class first
+endclass
+
+module tb();
+  first f1;  
+  first f2; // where we want to keep the original data as it is and utilize a copy of the original data for processing
+            // create another class veriable / handler
+
+  initial begin
+    f1 = new();  //// 1. call constructor for original class
+    f1.data = 24; /// 2. Processing    
+    f2 = new f1; //// 3. Create a copy from f1 to f2 . This creates a copy of the class. it copies all the data of f1 class into f2.
+    $display("value of data member data from f1: %0d and data from f2: %0d",f1.data, f2.data); 
+    f2.data = 32; //// Processing
+    $display("value of data member data from f1: %0d and data from f2: %0d",f1.data, f2.data); 
+  end  
+endmodule
+
+// OUTPUT:
+//KERNEL : value of data member data from f1: 24 and data from f2: 24
+//KERNEL : value of data member data from f1: 24 and data from f2: 32
