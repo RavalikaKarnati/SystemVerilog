@@ -37,7 +37,7 @@ endtask;
 Task can be used: TIme depedent expressions, Scheduling processes in class.  
 functions can be used : Printing values of Data members, initializing values of variables, TIme independent expressions, return data from class.  
 
-------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **3. PASS BY VALUE & PASS BY REFERENCE:**
 _PASS BY VALUE_: When we call a task with any variables(defined in main program), the arguments inside task/function definition locally creates copy(memory) of those variables and once execution of task/function is completed that memory is cleaned up. So if any changes or updates done to the arguments of the Task/function by the execution of that task/function will not reflect at the variables(defined in main program) that we used to call the task. This is becuase of PASS BY VALUE.  
 So, Whenever we use pass by value while calling Task/function it creates a copy of passed variable values locally in a stack.  
@@ -79,5 +79,7 @@ function automatic bit [1:0] add( ref  bit [1:0] a, b) endfunction
 
 ![IMG_2060](https://github.com/user-attachments/assets/3b18f2e5-25d4-4177-969d-1dd1336ed758)
 
-          
-   
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------          
+COPYING OBJECT :
+ <img width="752" height="372" alt="image" src="https://github.com/user-attachments/assets/817dfe8e-7ade-4155-8fb8-9f4922467648" />
+  
