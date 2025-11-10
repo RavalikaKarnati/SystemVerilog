@@ -78,3 +78,30 @@ endmodule
 // OUTPUT:
 //KERNEL : value of data member data from f1: 24 and data from f2: 24
 //KERNEL : value of data member data from f1: 24 and data from f2: 32
+
+
+//////////////////////////////////// copying object - CUSTOM METHOD ///////////////////////////////////
+class first;
+  int data = 34;  // declaring the data members of a class first
+  int data2; // declaring the data members of a class first
+  function first copy()
+    copy = new();  /// 1. call constructor for original class to access datamembers
+    copy.data = data;
+    copy.temp = temp;  
+  endfunction
+endclass
+
+module tb();
+  first f1;  
+
+  initial begin
+    f1 = new();  //// 1. call constructor for original class
+    f2 = new();
+    f2 = f1.copy();
+     $display("value of data member data from f1: %0d and data from f2: %0d",f1.data, f2.data); 
+
+  end  
+endmodule
+
+// OUTPUT:
+//KERNEL : value of data member data from f1: 34 and data from f2: 34
