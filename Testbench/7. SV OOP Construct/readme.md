@@ -86,4 +86,9 @@ function automatic bit [1:0] add( ref  bit [1:0] a, b) endfunction
 COPYING OBJECT :  
 
  <img width="752" height="372" alt="image" src="https://github.com/user-attachments/assets/817dfe8e-7ade-4155-8fb8-9f4922467648" />
+
+ 1. NORMAL COPY:   
+ 2. CUSTOM METHOD:   
+ 3. SHALLOW COPY:   
+ 4. DEEP COPY:   
   
