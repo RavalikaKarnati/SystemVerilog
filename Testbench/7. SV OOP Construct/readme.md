@@ -54,6 +54,9 @@ endtask;
 
 task(a,b); // a--> x, b --> y
 
+<img width="541" height="247" alt="image" src="https://github.com/user-attachments/assets/cf6cbcfc-c6e6-4610-bff6-c801473a5ba7" />
+
+
 _PASS BY REFERENCE_(ref keyword): When we call a task with any variables(defined in main program), the arguments inside task/function definition are nothing but pointers which are storing/refering to the address of variables (defined in main program). So, any update/changes done by execution of task/function also reflects at the variables(defined in main program). This is PASS BY REFERENCE
 
 Eg:  we prefer PASS BY REFERENCE when working with arrays where you want to update the array after processing
