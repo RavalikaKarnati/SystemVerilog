@@ -52,7 +52,7 @@ endmodule
 //kERNEL : Display3: Value of the data: 5 and data2 2  
 //KERNEL : fatal error : NULL POINTER ACCESS
 
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //////////////////////////////////// copying object by keeping original class ///////////////////////////////////
 // where we want to keep the original data as it is and utilize a copy of the original data for processing
 class first;
@@ -79,12 +79,15 @@ endmodule
 //KERNEL : value of data member data from f1: 24 and data from f2: 24
 //KERNEL : value of data member data from f1: 24 and data from f2: 32
 
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //////////////////////////////////// copying object - CUSTOM METHOD ///////////////////////////////////
+//                  i. Add function inside class and Refer to add a constructor to the function name.   
+//                   ii. So this will create an object, and once you have an object, you could just replace the data members of that object with the data of a claSS.  
+//                  iii. In the testbench, you'll just call the custom method (function) that we have added, and this will return an object which we will store in the object where
 class first;
   int data = 34;  // declaring the data members of a class first
   int data2; // declaring the data members of a class first
-  function first copy()
+  function first copy()             // Add function inside class and Refer to add a constructor to the function name.
     copy = new();  /// 1. call constructor for original class to access datamembers
     copy.data = data;
     copy.temp = temp;  
@@ -97,7 +100,7 @@ module tb();
   initial begin
     f1 = new();  //// 1. call constructor for original class
     f2 = new();
-    f2 = f1.copy();
+    f2 = f1.copy();        // In the testbench, you'll just call the custom method (function) that we have added, and this will return an object which we will store in the object 
      $display("value of data member data from f1: %0d and data from f2: %0d",f1.data, f2.data); 
 
   end  
