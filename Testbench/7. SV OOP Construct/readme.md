@@ -106,12 +106,10 @@ a) we could follow the position based b) name based with help of "." (like we us
                   first f2;  
                   f1 = new ();
                   f2 = new f1; // creates a new copy               
- 3. CUSTOM METHOD:   we can use this method and above normal method when we don't have class inside a class   
+ 3. CUSTOM COPY METHOD:   we can use this method and above normal method when we don't have class inside a clasS. HOW TO CREATE CUSTOM COPY METHOD?
                    i. Add function inside class and Refer to add a constructor to the function name.   
-                   ii. So this will create an object, and once you have an object, you could just replace the data members of that   object with the data of a class.   
-                   iii. In the testbench, you'll just call the custom method (function) that we have added, and this will return an object which we will store in the object where
-
-we want to keep the data, 
+                   ii. So this will create an object, and once you have an object, you could just replace the data members of that object with the data of a claSS.  
+                   iii. In the testbench, you'll just call the custom method (function) that we have added, and this will return an object which we will store in the object where we want to keep the data. 
  5. SHALLOW COPY:   
  6. DEEP COPY:     
   
