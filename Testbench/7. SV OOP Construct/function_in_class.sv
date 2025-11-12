@@ -1,7 +1,7 @@
 /// create a custom construction instead of new() which we usually use with the class.
 ///////////////////////////////////// FUNCTION IN CLASS //////////////////////////////////////////////////
 
-class custom
+class custom;
     int data;
   function new();
     data = 32;
@@ -21,7 +21,7 @@ endmodule
 
 /////////////////////////////////////////////////// FUNCTION IN CLASS --> create data on GO //////////////////////////////////
 
-class custom
+class custom;
   int data;
   function new(input int datain = 0); // specify the default value so that when we don't pass any argument when calling fucntion, it will take the default value
     data = datain;
@@ -43,7 +43,7 @@ endmodule
 ///////////////////////////////////// FUNCTION IN CLASS //////////////////////////////////////////////////
 /////////////////////////////////////////////////// create multiple arguments for our custom constructor -- follow by the position //////////////////////////////////
 
-class custom
+class custom;
   int data1;
   bit [7:0] data2;
   shortint data3;
@@ -69,7 +69,7 @@ endmodule
 /////////////////////////////////////////////////////////////////////// FUNCTION IN CLASS ///////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////// create multiple arguments for our custom constructor -- follow by name //////////////////////////////////
 
-class custom
+class custom;
   int data1;
   bit [7:0] data2;
   shortint data3;
