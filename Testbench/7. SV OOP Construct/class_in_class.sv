@@ -3,20 +3,20 @@
 // fundamentals of class inside a class:
 // by default, the scope for a data member of a class is public
 
-class first
+class first;
   int data = 34;  
   task display_first();
-    $disaply("value of data is class first %0d", data)
+    $display("value of data is class first %0d", data);
   endtask
 endclass
 
-class second
+class second;
   first f1;
   function new();
     f1 = new();
   endfunction
   task display_second();
-    $disaply("value of data is class first inside class second %0d", f1.data)
+    $display("value of data is class first inside class second %0d", f1.data);
   endtask
 endclass
 
@@ -34,24 +34,23 @@ module tb;
 endmodule
 
 // OUTPUT
-// value of data in module 34
-// value of data is class first inside class second 34
-// value of data is class first 34
-// value of data is class first inside class second 24
-// value of data is class first 24
+// KERNEL: value of data is class first inside class second 34
+// KERNEL: value of data is class first 34
+// KERNEL: value of data is class first inside class second 24
+// KERNEL: value of data is class first 24
 
 
 ///////////////////////////////////////////////////// local/ protected member /////////////////////////////////////////////////
-class first
+class first;
   local int data = 34;   // when you add "local" to the varible in a class, you cannot access the data from another class
                          // data is restricted or visible to only class first
                          // this is done to protect some of the data members
   task display_first();
-    $disaply("value of data is class first %0d", data)
+    $display("value of data is class first %0d", data)
   endtask
 endclass
 
-class second
+class second;
   first f1;
   function new();
     f1 = new();
@@ -62,7 +61,7 @@ module tb;
   initial begin
     second s2;
     s2 = new();
-    $disaply("value of data in module %0d", s2.f1.data);
+    $display("value of data in module %0d", s2.f1.data);
     s2.f1.display_first();  
   end
 endmodule
@@ -71,7 +70,7 @@ endmodule
 // compile error: cannot access local/protected
 
 ///////////////////////////////////////////////////// local/ protected member /////////////////////////////////////////////////
-class first
+class first;
   local int data = 34;   // when you add "local" to the varible in a class, you cannot access the data from another class
                          // data is restricted or visible to only class first
                          // this is done to protect some of the data members
@@ -86,11 +85,11 @@ class first
   endfunction
 
   task display_first();
-    $disaply("value of data is class first %0d", data)
+    $display("value of data is class first %0d", data)
   endtask
 endclass
 
-class second
+class second;
   first f1;
   function new();
     f1 = new();
