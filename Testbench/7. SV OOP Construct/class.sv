@@ -108,3 +108,51 @@ endmodule
 
 // OUTPUT:
 //KERNEL : value of data member data from f1: 34 and data from f2: 34
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//////////////////////////////////// copying object - SHALLOW COPY//////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//// here both original object and copied object has same handler
+// get an independent copy of the data member but not an independent handler for both objects. that is refer to as a shallow copy. 
+// that is why change in s2.f1.data will reflect the changes in s1.f1.data because both are pointing to same handler
+// To have  both the original object and the copied object independent handlers, we use **"DEEP COPY"**
+
+class first;
+  int data =12;
+endclass
+class second;
+    int data2 = 34;
+    first f1;
+    function new();
+      f1 = new();
+    endfunction
+endclass
+
+module tb;
+  second s1, s2;
+ initial begin 
+   s1 = new();
+   s1.data2= 45;
+   s2 = new s1;
+   $display("value of copied data2 : %0d",s2.data2); 
+   s2.data2 = 78;
+   $display("value of  data2in s1: %0d and s2: %0d", s1.data2, s2.data2);
+   $display("value of  data in f1: %0d", s2.f1.data);
+   s2.f1.data = 64;
+   $display("value of  data in f1 from s1: %0d and from s2: %0d", s1.f1.data, s2.f1.data);
+   
+ end
+endmodule
+
+// OUTPUT:
+# KERNEL: value of copied data2 : 45
+# KERNEL: value of  data2in s1: 45 and s2: 78
+# KERNEL: value of  data in f1: 12
+# KERNEL: value of  data in f1: 64
+# KERNEL: value of  data in f1 from s1: 64 and from s2: 64 // we get an independent copy of the data member but not an independent handler for both objects. that is refer to as a shallow copy
+  
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//////////////////////////////////// copying object - DEEP COPY//////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
