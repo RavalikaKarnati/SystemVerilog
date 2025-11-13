@@ -116,3 +116,9 @@ a) we could follow the position based b) name based with help of "." (like we us
   
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------          
 **6.INHERITANCE:**  
+In some situations,we might need to compute intermediate data to debug whether the stimulus is correctly going to a DUT or to inject an error into the stimulus that we are sending to a DUT. In that case, we require access to all the data members as well as the properties which are present in the generated class, and along with that, we will be modifying or adding certain properties into the new class that will help us to add more capabilities to the stimulus that we are generating, To achieve this, we utilize **INHERITANCE**
+
+keyword **"EXTENDS"** is used to extend class that will inherit the properties as well as the data members of the class which we are extending.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------          
+**7.POLYMORPHISM:**  
+
