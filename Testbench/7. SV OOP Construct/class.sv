@@ -87,15 +87,15 @@ endmodule
 class first;
   int data = 34;  // declaring the data members of a class first
   int data2; // declaring the data members of a class first
-  function first copy()             // Add function inside class and Refer to add a constructor to the function name.
+  function first copy();            // Add function inside class and Refer to add a constructor to the function name.
     copy = new();  /// 1. call constructor for original class to access datamembers
     copy.data = data;
-    copy.temp = temp;  
+    copy.data2 = data2;  
   endfunction
 endclass
 
 module tb();
-  first f1;  
+  first f1, f2;  
 
   initial begin
     f1 = new();  //// 1. call constructor for original class
@@ -156,3 +156,45 @@ endmodule
 //////////////////////////////////// copying object - DEEP COPY//////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//// here both original object and copied object have different handler
+// get an independent copy of the data member and independent copy of handler for both objects. that is refer to as a DEEP copy.
+class first;
+  int data =12;
+  function first copy();           // Add function inside class and Refer to add a constructor to the function name.
+    copy = new();  /// 1. call constructor for original class to access datamembers
+    copy.data = data;
+  endfunction
+endclass
+class second;
+    int data2 = 34;
+    first f1;
+    function new();
+      f1 = new();
+    endfunction
+  function second copy();             // Add function inside class and Refer to add a constructor to the function name.
+    copy = new();  /// 1. call constructor for original class to access datamembers
+    copy.data2 = data2;
+    copy.f1 = f1.copy;
+  endfunction
+endclass
+
+module tb;
+  second s1, s2;
+ initial begin 
+   s1 = new();
+   s2 = new();
+   s1.data2= 45;
+   s2 = s1.copy();
+   $display("value of copied data2 : %0d",s2.data2); 
+   s2.data2 = 78;
+   $display("value of  data2in s1: %0d and s2: %0d", s1.data2, s2.data2);
+   s2.f1.data = 64;
+   $display("value of  data in f1 from s1: %0d and from s2: %0d", s1.f1.data, s2.f1.data);
+   
+ end
+endmodule
+
+// OUTPUT:
+# KERNEL: value of copied data2 : 45
+# KERNEL: value of  data2in s1: 45 and s2: 78
+# KERNEL: value of  data in f1 from s1: 12 and from s2: 64
