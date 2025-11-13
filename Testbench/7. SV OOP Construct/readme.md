@@ -116,9 +116,12 @@ a) we could follow the position based b) name based with help of "." (like we us
   
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------          
 **6.INHERITANCE:**  
-In some situations,we might need to compute intermediate data to debug whether the stimulus is correctly going to a DUT or to inject an error into the stimulus that we are sending to a DUT. In that case, we require access to all the data members as well as the properties which are present in the generated class, and along with that, we will be modifying or adding certain properties into the new class that will help us to add more capabilities to the stimulus that we are generating, To achieve this, we utilize **INHERITANCE**
+In some situations,we might need to compute intermediate data to debug whether the stimulus is correctly going to a DUT or to inject an error into the stimulus that we are sending to a DUT. In that case, we require access to all the data members as well as the properties which are present in the generated class, and along with that, we will be modifying or adding certain properties into the new class that will help us to add more capabilities to the stimulus that we are generating, To achieve this, we utilize **INHERITANCE**  
 
-keyword **"EXTENDS"** is used to extend class that will inherit the properties as well as the data members of the class which we are extending.
+keyword **"EXTENDS"** is used to extend class that will inherit the properties as well as the data members of the class which we are extending.  
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------          
 **7.POLYMORPHISM:**  
+keyword **"VIRTUAL"** is used to declare all the methods in the parent class.  
+From example1 and example2 in polymorphism.sv,  method display() has multiple behaviors. If you do not modify the method,it behaves as Example2. If you modify the method, it behaves as Example1. This is refer to as "POLYMORPHISM".  
+_In the parent class, all the methods will be declared as **virtual**_. So if the user does not modify the method, the method that we have in the parent class will be executed. Otherwise, the method that you have in an extended class will be executed, and this is what we require to build complex expressions. So in a case where we want to modify our expression depending on the stimulus that we are generating, we could just modify our method and generate the complex stimulus
 
