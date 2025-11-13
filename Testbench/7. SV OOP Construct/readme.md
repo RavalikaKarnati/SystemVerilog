@@ -6,7 +6,9 @@ PassByValue&PassByRef.sv
 UsingArrayInFunction.sv   
 function_in_class.sv   
 Task_in_class.sv   
-class_in_class.sv  
+class_in_class.sv 
+inheritance.sv
+polymorphism.sv
 
 
 
