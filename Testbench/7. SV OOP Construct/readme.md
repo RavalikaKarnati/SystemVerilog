@@ -86,17 +86,21 @@ function automatic bit [1:0] add( ref  bit [1:0] a, b) endfunction
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------          
 **4.CUSTOM CONSTRUCTOR:**
-Will start using Functions and Task inside a class   
+keyword **"this"** --> used to distinguish between the data member and an argument if you have the same name for an argument as well as the data member that you have in a class.  
+ 
 (A) SPECIAL FUNCTION in SV: that won't need any return type(also we don't to use void)  
-function new();  
-endfunction  
-(B) SPECIAL FUNCTION with 1 argument in it and PASSING 1 value from CONSTRUCTOR itself  
-(C) this.class_datamember operator: SPECIAL FUNCTION with many arguments and arguments name is same as data memebers name in class.  
-when we wan't to use same name for data members of class and arguments then to refer/differentiate to a data member of a class we use this.class memeber keyword  
-(D) When We have multiple arguments, how do we specify or recognize the sequence of arguments while calling the functions:,  
-a) we could follow the position based b) name based with help of "." (like we use during module instantiation)  
-(E) Using Task inside a class and accessing it  
-(F) Basic function inside a class and accessign it  
+    function new(input int data1 = 0, input bit [7:0] data2 =0, input shortint data3 = 0);    
+    this.data1 = data1;      //  all the three arguments which are there in a constructor are given the same name, which are used to name our data members.    
+    this.data2 = data2;      // keyword = "this." to refer to the datamember of the class   
+    this.data3 = data3;     
+  endfunction    
+(B) SPECIAL FUNCTION with 1 argument in it and PASSING 1 value from CONSTRUCTOR itself   
+(C) this.class_datamember operator: SPECIAL FUNCTION with many arguments and arguments name is same as data memebers name in class.   
+when we wan't to use same name for data members of class and arguments then to refer/differentiate to a data member of a class we use this.class memeber keyword   
+(D) When We have multiple arguments, how do we specify or recognize the sequence of arguments while calling the functions:,   
+a) we could follow the position based b) name based with help of "." (like we use during module instantiation)    
+(E) Using Task inside a class and accessing it   
+(F) Basic function inside a class and accessign it    
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------          
 **5.COPYING OBJECT:**  
@@ -128,3 +132,7 @@ keyword **"VIRTUAL"** is used to declare all the methods in the parent class.
 From example1 and example2 in polymorphism.sv,  method display() has multiple behaviors. If you do not modify the method,it behaves as Example2. If you modify the method, it behaves as Example1. This is refer to as "POLYMORPHISM".  
 _In the parent class, all the methods will be declared as **virtual**_. So if the user does not modify the method, the method that we have in the parent class will be executed. Otherwise, the method that you have in an extended class will be executed, and this is what we require to build complex expressions. So in a case where we want to modify our expression depending on the stimulus that we are generating, we could just modify our method and generate the complex stimulus
 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------          
+**8.SUPER:** 
+ When we extend the properties of the parent class. In that case, if you assume that you have a custom constructor present in both the parent class and the child class, you’ll find that the constructor you are referring to needs to be distinguished. Because the custom constructor will have a new() in the parent class as well as a new() in the child class. **super** keyword is used distinguish between custom constructors from parent class and extended class/child class.
