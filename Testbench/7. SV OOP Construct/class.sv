@@ -58,13 +58,16 @@ endmodule
 class first;
   int data;  // declaring the data members of a class first
   int data2; // declaring the data members of a class first
+  function void display();
+    $display("value of data: %0d, data2: %0d", data, data2);
+  endfunction
 endclass
 
 module tb();
   first f1;  
   first f2; // where we want to keep the original data as it is and utilize a copy of the original data for processing
             // create another class veriable / handler
-
+  first f3;
   initial begin
     f1 = new();  //// 1. call constructor for original class
     f1.data = 24; /// 2. Processing    
@@ -72,12 +75,19 @@ module tb();
     $display("value of data member data from f1: %0d and data from f2: %0d",f1.data, f2.data); 
     f2.data = 32; //// Processing
     $display("value of data member data from f1: %0d and data from f2: %0d",f1.data, f2.data); 
+    f3 = new();
+    f1.data2 = 56;
+    f3 = f1;   // create a copy  from f1 to f2
+    f3.display();
+    f1.display();
   end  
 endmodule
 
 // OUTPUT:
-//KERNEL : value of data member data from f1: 24 and data from f2: 24
-//KERNEL : value of data member data from f1: 24 and data from f2: 32
+# KERNEL: value of data member data from f1: 24 and data from f2: 24
+# KERNEL: value of data member data from f1: 24 and data from f2: 32
+# KERNEL: value of data: 24, data2: 56
+# KERNEL: value of data: 24, data2: 56
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //////////////////////////////////// copying object - CUSTOM METHOD ///////////////////////////////////
