@@ -90,7 +90,14 @@ class generator;
   constraint wr_oe_c {
     ( wr == 1 ) <-> (oe == 0); 
   }
- 
+
+  constraint wr_addr {
+
+( wr == 1 ) -> (addr inside {[0:7]});
+
+( wr == 0) -> (addr inside {[8:15]});
+
+}
   constraint write_read {   
     if(wr == 1)
     {
