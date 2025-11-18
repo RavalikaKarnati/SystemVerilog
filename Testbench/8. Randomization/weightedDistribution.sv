@@ -15,7 +15,7 @@ module tb;
     g1 = new();
     for ( int i=0; i<10; i++) begin  // repeat (10) or foreach ( size)
       g1.randomize();    //  This will generate the random value for the signals modified with the keyword rand, both a and b are modified with the rand keyword, so for a and b, we will generate random values
-      $display("Value of a: %0d and b =%0d", g1.wr, g1.rd);
+      $display("Value of wr: %0d and rd =%0d", g1.wr, g1.rd);
       #10;
     end
   end
