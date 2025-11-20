@@ -8,8 +8,8 @@ generating the stimulus, and now the class could forcefully stop the simulation.
 
 **SEMAPHORE:** used to access certain resources in a SystemVerilog testbench top. So the most common example of a semaphore is to access an interface. Another example you have one data source where multiple classes want to add the data. In that case, you could also use a semaphore,
 Mostly, we use it for sharing an interface between multiple classes.     
-1. get    
-2. put    
+1. get     
+2. put   
 The "get method" specifies how a specific class receives a semaphore so that it can access a resource, and then once it completes its operation, how you put back or release the semaphore, for that, we have a put method
 
 **MAILBOX:** the primary purpose is to send data, specifically transaction data, between classes. For instance, When a generator will be generating transaction data, which will be sent to a driver, and then finally, the driver will apply it to the DUT with the help of an interface. To communicate the data of a transaction between the generator and driver, we use a mailbox.    
