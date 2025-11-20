@@ -26,9 +26,9 @@ We have two paths from here.
 <img width="411" height="286" alt="image" src="https://github.com/user-attachments/assets/ce91f9d1-676d-4b72-9c19-b49bbfc7d926" />
 
 
-**INTERFACE**: Interface provides access to the signals of a DUT for the class-based component
-**INTER PROCESS COMMUNICATION (IPC)**: Interprocess communication allows us to communicate the data between the classes
-                                   Eg: SEMAPHORE, MAILBOXES, EVENTS
+**INTERFACE**: Interface provides access to the signals of a DUT for the class-based component  
+**INTER PROCESS COMMUNICATION (IPC)**: Interprocess communication allows us to communicate the data between the classes   
+                                   Eg: SEMAPHORE, MAILBOXES, EVENTS   
 
 **ENVIRONMENT**: Instead of having all of these components in a testbench top, we will utilize the environment class as a container where we add the generator, driver, scoreboard, and monitor and then we will finally utilize the environment object in the testbench top. Then, at the top, we just need to create an instance of the environment class and execute the process that we have in the environment class.
 
