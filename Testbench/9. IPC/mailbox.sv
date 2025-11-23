@@ -38,3 +38,60 @@ module tb;
     drv.run();
   end
 endmodule
+
+//OUTPUT
+# KERNEL: [GEN] : SENT DATA : 12
+# KERNEL: [DRV] : RCVD DATA : 12
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+# VSIM: Simulation has finished.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// specify mailbox with custom constructor ////////////////////
+// having custom constructor for the mailbox that basically simplifies the entire process by specifying the mailbox there itself
+
+class generator;
+  int data = 12;
+  mailbox gen2drv_mbx; // gen2drv
+  function new(mailbox gen2drv_mbx);
+    this.gen2drv_mbx = gen2drv_mbx;
+  endfunction
+  
+  task run();
+    gen2drv_mbx.put(data);
+    $display("[GEN] : SENT DATA : %0d", data); //  we follow UVM-like terminology, We can add a tag
+  endtask
+endclass
+
+class driver;
+  int datac = 0;
+  mailbox drv2gen_mbx;
+
+  function new(mailbox drv2gen_mbx);
+    this.drv2gen_mbx = drv2gen_mbx;
+  endfunction
+  
+  task run();
+    drv2gen_mbx.get(datac);
+    $display("[DRV] : RCVD DATA : %0d", datac);
+  endtask
+endclass
+
+module tb;
+  generator gen;
+  driver drv;
+  mailbox mbx;
+
+  initial begin
+    mbx = new();
+    gen = new(mbx);  // having custom constructor for the mailbox that basically simplifies the entire process by specifying the mailbox there itself
+    drv = new(mbx);  // having custom constructor for the mailbox that basically simplifies the entire process by specifying the mailbox there itself
+
+    gen.run();
+    drv.run();
+  end
+endmodule
+
+//OUTPUT
+# KERNEL: [GEN] : SENT DATA : 12
+# KERNEL: [DRV] : RCVD DATA : 12
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+# VSIM: Simulation has finished.
