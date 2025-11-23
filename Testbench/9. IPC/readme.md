@@ -1,4 +1,7 @@
 **INTER PROCESS COMMUNICATION:**     
+Events	Different threads synchronize with each other via event handles in a testbench   
+Semaphores	Different threads might need to access the same resource; they take turns by using a semaphore   
+Mailbox	Threads/Components need to exchange data with each other; data is put in a mailbox and sent   
 
 **EVENT:** Used to convey a message between different classes. For Instance, thera is a generator class, and then a user has requested to generate end stimulus, after generation of an end stimulus is finished, we want to send the message that we have finished
 generating the stimulus, and now the class could forcefully stop the simulation. In that case, we could use an event.    
