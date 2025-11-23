@@ -46,3 +46,25 @@ module tb;
    /// // fork join will hold the simulation. Iff there is any statement after a join, we won't be able to execute it unless all of this completes its execution. 
   end  
 endmodule
+
+// output
+# KERNEL: Data Sent : 167
+# KERNEL: Data RCVD : 167
+# KERNEL: Data Sent : 220
+# KERNEL: Data RCVD : 220
+# KERNEL: Data Sent : 248
+# KERNEL: Data RCVD : 248
+# KERNEL: Data Sent : 81
+# KERNEL: Data RCVD : 81
+# KERNEL: Data Sent : 94
+# KERNEL: Data RCVD : 94
+# KERNEL: Data Sent : 101
+# KERNEL: Data RCVD : 101
+# KERNEL: Data Sent : 180
+# KERNEL: Data RCVD : 180
+# KERNEL: Data Sent : 205
+# KERNEL: Data RCVD : 205
+# KERNEL: Data Sent : 227
+# KERNEL: Data RCVD : 227
+# KERNEL: Data Sent : 151
+# KERNEL: Data RCVD : 151
