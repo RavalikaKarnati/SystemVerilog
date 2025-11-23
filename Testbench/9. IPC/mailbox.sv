@@ -5,6 +5,7 @@ class generator;
   int data = 12;
   mailbox gen2drv_mbx; // gen2drv
   task run();
+    $display("[GEN] : SENT DATA before mailbox : %0d", data);
     gen2drv_mbx.put(data);
     $display("[GEN] : SENT DATA : %0d", data); //  we follow UVM-like terminology, We can add a tag
   endtask
@@ -27,8 +28,12 @@ module tb;
   initial begin
     gen = new();
     drv = new();
-    gen.gen2drv_mbx = mbx;  // common for both generator and driver
-    drv.drv2gen_mbx = mbx;
+    mbx = new();
+    gen.data = 20;
+    
+     gen.gen2drv_mbx = mbx;  // common for both generator and driver
+     drv.drv2gen_mbx = mbx;
+    
     gen.run();
     drv.run();
   end
