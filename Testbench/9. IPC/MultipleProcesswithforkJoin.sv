@@ -8,11 +8,9 @@ module tb;
    for(i = 0; i<10; i++) begin  
       data1 = $urandom();
       $display("Data Sent : %0d", data1);
-     #10;
-    
+     #10; 
      wait(next.triggered);  // As soon as the generator receives the trigger for an event, it will send the next sample
-                            // This trigger is doing a handshake between the generator and the driver
-     
+                            // This trigger is doing a handshake between the generator and the driver    
     end
     
    -> done; // This event will convey the end of a simulation
