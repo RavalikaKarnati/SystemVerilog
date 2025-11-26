@@ -12,15 +12,21 @@ interface add_if;
   logic [3:0] a, b;
   logic [4:0] sum;  //  using logic is that it supports both procedural and continuous assignments, so we do not need to worry about those scenarios like use of reg or wire
                     //  if we use reg or wire, we need to consider whether the design uses procedural or continuous assignments, but since logic supports both, it automatically adapts to the specific situation. 
+  logic clk;
+  modport DRV (        //One of the constructs is a modport used to specify the direction, it may help us to prevent wiring errors
+    output a, b,
+    input sum, clk
+  );
 endinterface
 
 class driver;
-  virtual add_if aif;  // Virtual -- definition of an interface is defined outside the class
+  virtual add_if.DRV aif;  // Virtual -- definition of an interface is defined outside the class
   task run();
     forever begin
       @(posedge aif.clk)
       aif.a <= 1;
-      aif.b <= 5;    
+      aif.b <= 5;   
+      $display("[DRV] : Interface Trigger");
     end
   endtask
 endclass
