@@ -83,7 +83,9 @@ module tb;
   generator g1, g2;
   initial begin
     for ( int i=0; i<10; i++) begin  // repeat (10) or foreach ( size)
-      g1 = new();
+      g1 = new();        //  we are calling randc, So this basically means,until and unless we cover all the possible values, we won't see the repetition of a value. But when
+                         // we add a new object over here since we have added a new object for each iteration, we simply do not get a history. So for each independent object, we get a new history or a new
+                         // space, and for that reason, you could see an immediate repetition of a value, even though we have utilized the randc. 
       g1.randomize();    //  This will generate the random value for the signals modified with the keyword rand, both a and b are modified with the rand keyword, so for a and b, we will generate random values
       $display("Value of a: %0d and b =%0d", g1.a, g1.b);
       #10;
