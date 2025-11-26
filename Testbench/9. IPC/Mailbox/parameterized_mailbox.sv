@@ -124,9 +124,10 @@ module tb;
     mbx = new();
     gen = new(mbx);
     drv = new(mbx); 
-    
+    fork
     gen.run();
     drv.run();
+    join
   end
   
 endmodule
