@@ -16,6 +16,7 @@ interface add_if;
                     //  if we use reg or wire, we need to consider whether the design uses procedural or continuous assignments, but since logic supports both, it automatically adapts to the specific situation. 
 endinterface
 
+//manual stimulus
 
 module tb;
   
