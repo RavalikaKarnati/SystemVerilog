@@ -76,9 +76,9 @@ class generator;
       #10;
       wait(next.triggered);  // As soon as the generator receives the trigger for an event, it will send the next sample
                             // This trigger is doing a handshake between the generator and the driver  
-    end  
+    end 
+       -> done; // This event will convey the end of a simulation
   endtask
-   -> done; // This event will convey the end of a simulation
 endclass
 
 class driver;
