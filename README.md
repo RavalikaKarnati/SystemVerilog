@@ -1,5 +1,6 @@
  **DESIGN:**      
-_GUIDELINES FOR DESIGN:_    
+_GUIDELINES FOR DESIGN:_  
+1. Ideally, we have to write Verilog/SystemVerilog code whose behavior remains consistent, regardless of the simulation order
 
 **TESTBENCH:**     
 _GUIDELINES FOR TESTBENCHES:_  
