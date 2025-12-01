@@ -9,6 +9,10 @@ module add (
   end
 endmodule
 
+// if we use an interface with all reg types, then we are not allowed to connect the variables that we have in an interface to the output port of the DUT. 
+// And if you declare an interface with all wire types in that case, we are not allowed to apply a stimulus,  using initial or always blocks. 
+// if we declare an interface with a reg type or an interface with a wire type. For that reason, okay, we utilize the logic type.
+
 interface add_if;
   logic clk;
   logic [3:0] a, b;
