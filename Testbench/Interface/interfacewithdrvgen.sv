@@ -133,6 +133,8 @@ module tb;
     gen = new(mbx);
     drv = new(mbx);
     done = gen.done;
+    next = drv.next;
+    gen.next = next;
     drv.aif = aif; // connecting interface from inside class aif to the interface outside the class // this will allow to send stimulus from driver to DUT
   end
 
