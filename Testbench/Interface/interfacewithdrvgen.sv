@@ -96,8 +96,8 @@ class driver;
       drv2gen_mbx.get(dc);  //  we do not need to add the new method for So we just need to specify the data container, and this will automatically create an object where we have data
       $display("[DRV] data RCVD from generartor");
       @(posedge aif.clk)
-      aif.a <= t.a;
-      aif.b <= t.b; 
+      aif.a <= dc.a;
+      aif.b <= dc.b;
       dc.display();
       #10;
       ->next;   // triggering an event "next" to let the geneartor know that receiver received the data and ask to generate the next stimulus
