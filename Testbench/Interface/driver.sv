@@ -26,7 +26,7 @@ class driver;
       @(posedge aif.clk)
       aif.a <= 1;
       aif.b <= 5;   
-      $display("[DRV] : Interface Trigger");
+      $display("[DRV] : value of a: %0d, b: %0d", aif.a, aif.b);
     end
   endtask
 endclass
@@ -61,3 +61,15 @@ module tb;
     $finish;
   end
 endmodule
+
+//output
+# KERNEL: [DRV] : value of a: x, b: x
+# KERNEL: [DRV] : value of a: 1, b: 5
+# KERNEL: [DRV] : value of a: 1, b: 5
+# KERNEL: [DRV] : value of a: 1, b: 5
+# KERNEL: [DRV] : value of a: 1, b: 5
+# RUNTIME: Info: RUNTIME_0068 testbench.sv (52): $finish called.
+# KERNEL: Time: 100 ns,  Iteration: 0,  Instance: /tb,  Process: @INITIAL#48_3@.
+# KERNEL: stopped at time: 100 ns
+# VSIM: Simulation has finished. There are no more test vectors to simulate.
+# VSIM: Simulation has finished
