@@ -37,6 +37,7 @@ endmodule
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // If keyword "VIRTUAL" is added to the parent class what happens?
+// This allows us to execute the method in the child class in case we have a duplicate method in child class.
 // here we have method display() in both parent class and extended class so, in this case display() method in parent class will be overridden with the extended class and the display() in extended class is executed
 // if If you do not override the display() method ( or donot define display() method) in the extended class, in that case, the method that we have in the parent class will be executed
 
