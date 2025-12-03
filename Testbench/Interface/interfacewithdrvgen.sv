@@ -7,7 +7,8 @@
 
 //instruction rules
 // 1. add transaction constructor in generator custom constructor
-//2. send deep copy of transaction between generator and driver
+//2. send deep copy of transaction between generator and driver instead of original transaction object - independent object for each iteration, errors can be injected with methods/constraints
+
 
 ///////////////////////////////////////////////////////////////// DESIGN //////////////////////////////////////////////////////////////////////
 module add ( 
