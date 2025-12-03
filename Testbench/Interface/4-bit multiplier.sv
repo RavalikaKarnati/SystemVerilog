@@ -1,3 +1,15 @@
+module top ( 
+  input clk,
+  input [3:0] a, b,
+  output reg [7:0] mul 
+);
+  always @( posedge clk) begin
+     mul <= a*b;
+  end
+endmodule
+
+
+//// testbench
 //transaction
 
 class transaction;
@@ -113,7 +125,7 @@ mbx = new();
 gen = new(mbx);
 drv = new(mbx);
 drv.mif = mif;
-gen.done = done;
+done = gen.done;
 drv.next = next;
 gen.next = drv.next;
 end
@@ -138,3 +150,49 @@ initial begin
 $finish;
   end
 endmodule
+
+//output
+# KERNEL: value of a : 13 b: 8 mul: 0
+# KERNEL: [DRV] data RCVd from generator to driver
+# KERNEL: value of a : 13 b: 8 mul: 0
+# KERNEL: [GEN] data sent to driver
+# KERNEL: value of a : 7 b: 14 mul: 0
+# KERNEL: [DRV] data RCVd from generator to driver
+# KERNEL: value of a : 7 b: 14 mul: 0
+# KERNEL: [GEN] data sent to driver
+# KERNEL: value of a : 14 b: 5 mul: 0
+# KERNEL: [DRV] data RCVd from generator to driver
+# KERNEL: value of a : 14 b: 5 mul: 0
+# KERNEL: [GEN] data sent to driver
+# KERNEL: value of a : 2 b: 10 mul: 0
+# KERNEL: [DRV] data RCVd from generator to driver
+# KERNEL: value of a : 2 b: 10 mul: 0
+# KERNEL: [GEN] data sent to driver
+# KERNEL: value of a : 0 b: 13 mul: 0
+# KERNEL: [DRV] data RCVd from generator to driver
+# KERNEL: value of a : 0 b: 13 mul: 0
+# KERNEL: [GEN] data sent to driver
+# KERNEL: value of a : 12 b: 7 mul: 0
+# KERNEL: [DRV] data RCVd from generator to driver
+# KERNEL: value of a : 12 b: 7 mul: 0
+# KERNEL: [GEN] data sent to driver
+# KERNEL: value of a : 3 b: 9 mul: 0
+# KERNEL: [DRV] data RCVd from generator to driver
+# KERNEL: value of a : 3 b: 9 mul: 0
+# KERNEL: [GEN] data sent to driver
+# KERNEL: value of a : 9 b: 11 mul: 0
+# KERNEL: [DRV] data RCVd from generator to driver
+# KERNEL: value of a : 9 b: 11 mul: 0
+# KERNEL: [GEN] data sent to driver
+# KERNEL: value of a : 15 b: 3 mul: 0
+# KERNEL: [DRV] data RCVd from generator to driver
+# KERNEL: value of a : 15 b: 3 mul: 0
+# KERNEL: [GEN] data sent to driver
+# KERNEL: value of a : 8 b: 0 mul: 0
+# KERNEL: [DRV] data RCVd from generator to driver
+# KERNEL: value of a : 8 b: 0 mul: 0
+# RUNTIME: Info: RUNTIME_0068 testbench.sv (138): $finish called.
+# KERNEL: Time: 250 ns,  Iteration: 0,  Instance: /tb_top,  Process: @INITIAL#134_6@.
+# KERNEL: stopped at time: 250 ns
+# VSIM: Simulation has finished. There are no more test vectors to simulate.
+# VSIM: Simulation has finished.
