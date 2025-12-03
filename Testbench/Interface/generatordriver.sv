@@ -96,7 +96,7 @@ class driver;
       //     dc = new();    // this is not needed as get(); method creates objects automatically
       drv2gen_mbx.get(dc);  //  we do not need to add the new method for So we just need to specify the data container, and this will automatically create an object where we have data
       $display("[DRV] data RCVD from generartor");
-      @(posedge aif.clk)
+      @(posedge aif.clk);
       aif.a <= dc.a;
       aif.b <= dc.b;
       dc.display();
