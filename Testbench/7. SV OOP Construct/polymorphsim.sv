@@ -78,6 +78,7 @@ endmodule
 
 -------------------------------------------------------------------------------------------------------
 // Example2: If you do not override the display() method ( or donot define display() method) in the extended class, in that case, the method that we have in the parent class will be executed
+--------------------------------------------------------------------------------------------------------
 
 class first;           /// PARENT CLASS ////////
   int data =12;
@@ -116,3 +117,42 @@ endmodule
 // in an extended class will be executed, and this is what we require to build complex expressions. So in a case where we want to modify our expression depending on the stimulus that we are
 // generating, we could just modify our method and generate the complex stimulus
 
+
+-------------------------------------------------------------------------------------------------
+// how to use methods from parent class and child class
+----------------------------------------------
+
+class first;           /// PARENT CLASS ////////
+  int data =12;
+ virtual function void display();
+    $display("FIRST:value of data: %0d", data);
+  endfunction
+endclass
+
+class second extends first;  /// CHILD CLASS ////////////
+  int temp = 34;
+  function void add();
+    $display("value after process: %0d", temp+4);
+  endfunction
+
+  function void display();
+    $display("SECOND: value of data: %0d and temp :%0d", data, temp);
+  endfunction
+endclass
+
+module tb;
+  first f1;
+  second s1;
+  initial begin
+    s1 = new();
+    f1 =new();
+    f1.display();   // execute display() from parent class
+    s1.display();   // execute display() from child class which is modified. 
+  end
+endmodule
+
+//output
+# KERNEL: FIRST:value of data: 12
+# KERNEL: SECOND: value of data: 12 and temp :34
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+# VSIM: Simulation has finished.
