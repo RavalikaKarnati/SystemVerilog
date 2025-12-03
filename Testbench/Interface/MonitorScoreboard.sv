@@ -36,10 +36,10 @@ class monitor;
   task run();
     t = new();
     forever begin
-      @(posedge aif.clk);
-      t.a <= aif.a;
-      t.b <= aif.b;
-      t.sum <= aif.sum;
+      repeat(2) @(posedge aif.clk);
+      t.a = aif.a;
+      t.b = aif.b;
+      t.sum = aif.sum;
       $display("[MON] data sent to scoreboard");
       t.display();
       mon_mbx.put(t);
@@ -61,7 +61,7 @@ class scoreboard;
       score_mbx.get(data);
       $display("[SCOREBOARD] data rcvd from Monitor");
       data.display();
-      #20;
+      #40;
     end
   endtask
   
@@ -86,7 +86,7 @@ module tb;
   // apply stimulus
   initial begin
     for(int i=0; i<20; i++) begin
-      @(posedge aif.clk)
+       repeat(2) @(posedge aif.clk);
       aif.a <= $urandom_range(0,15);
       aif.b <= $urandom_range(0,15);
     end
@@ -116,3 +116,62 @@ module tb;
     $finish;
   end
 endmodule
+
+//output
+# KERNEL: [MON] data sent to scoreboard
+# KERNEL: value of a : 0 	 b: 0 	 sum: 0
+# KERNEL: [SCOREBOARD] data rcvd from Monitor
+# KERNEL: value of a : 0 	 b: 0 	 sum: 0
+# KERNEL: [MON] data sent to scoreboard
+# KERNEL: value of a : 3 	 b: 11 	 sum: 14
+# KERNEL: [SCOREBOARD] data rcvd from Monitor
+# KERNEL: value of a : 3 	 b: 11 	 sum: 14
+# KERNEL: [MON] data sent to scoreboard
+# KERNEL: value of a : 11 	 b: 3 	 sum: 14
+# KERNEL: [SCOREBOARD] data rcvd from Monitor
+# KERNEL: value of a : 11 	 b: 3 	 sum: 14
+# KERNEL: [MON] data sent to scoreboard
+# KERNEL: value of a : 4 	 b: 9 	 sum: 13
+# KERNEL: [SCOREBOARD] data rcvd from Monitor
+# KERNEL: value of a : 4 	 b: 9 	 sum: 13
+# KERNEL: [MON] data sent to scoreboard
+# KERNEL: value of a : 15 	 b: 15 	 sum: 30
+# KERNEL: [SCOREBOARD] data rcvd from Monitor
+# KERNEL: value of a : 15 	 b: 15 	 sum: 30
+# KERNEL: [MON] data sent to scoreboard
+# KERNEL: value of a : 4 	 b: 1 	 sum: 5
+# KERNEL: [SCOREBOARD] data rcvd from Monitor
+# KERNEL: value of a : 4 	 b: 1 	 sum: 5
+# KERNEL: [MON] data sent to scoreboard
+# KERNEL: value of a : 10 	 b: 12 	 sum: 22
+# KERNEL: [SCOREBOARD] data rcvd from Monitor
+# KERNEL: value of a : 10 	 b: 12 	 sum: 22
+# KERNEL: [MON] data sent to scoreboard
+# KERNEL: value of a : 11 	 b: 9 	 sum: 20
+# KERNEL: [SCOREBOARD] data rcvd from Monitor
+# KERNEL: value of a : 11 	 b: 9 	 sum: 20
+# KERNEL: [MON] data sent to scoreboard
+# KERNEL: value of a : 5 	 b: 15 	 sum: 20
+# KERNEL: [SCOREBOARD] data rcvd from Monitor
+# KERNEL: value of a : 5 	 b: 15 	 sum: 20
+# KERNEL: [MON] data sent to scoreboard
+# KERNEL: value of a : 11 	 b: 13 	 sum: 24
+# KERNEL: [SCOREBOARD] data rcvd from Monitor
+# KERNEL: value of a : 11 	 b: 13 	 sum: 24
+# KERNEL: [MON] data sent to scoreboard
+# KERNEL: value of a : 14 	 b: 9 	 sum: 23
+# KERNEL: [SCOREBOARD] data rcvd from Monitor
+# KERNEL: value of a : 14 	 b: 9 	 sum: 23
+# KERNEL: [MON] data sent to scoreboard
+# KERNEL: value of a : 8 	 b: 3 	 sum: 11
+# KERNEL: [SCOREBOARD] data rcvd from Monitor
+# KERNEL: value of a : 8 	 b: 3 	 sum: 11
+# RUNTIME: Info: RUNTIME_0068 testbench.sv (106): $finish called.
+# KERNEL: Time: 500 ns,  Iteration: 0,  Instance: /tb,  Process: @INITIAL#102_7@.
+# KERNEL: stopped at time: 500 ns
+# VSIM: Simulation has finished. There are no more test vectors to simulate.
+# VSIM: Simulation has finished.
+Finding VCD file...
+./dump.vcd
+[2025-12-03 04:23:50 UTC] Opening EPWave...
+Done
