@@ -33,9 +33,9 @@ module tb;
   );
 
   initial begin
-    aif.clk = 0;
+    aif.clk <= 0;
   end
-   always #10 aif.clk = ~aif.clk;
+   always #10 aif.clk <= ~aif.clk;
 
   // apply stimulus
   initial begin
