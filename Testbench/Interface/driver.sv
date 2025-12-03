@@ -23,7 +23,7 @@ class driver;
   virtual add_if.DRV aif;  // Virtual -- definition of an interface is defined outside the class
   task run();
     forever begin
-      @(posedge aif.clk)
+      @(posedge aif.clk);
       aif.a <= 1;
       aif.b <= 5;   
       $display("[DRV] : value of a: %0d, b: %0d", aif.a, aif.b);
