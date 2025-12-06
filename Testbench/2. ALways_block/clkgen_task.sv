@@ -83,8 +83,8 @@ module tb();
  
   task calc (input real freq_hz, input real duty_cycle, input real phase, output real pout, output real ton, output real toff);
     pout = phase;
-    ton = (1.0 / freq_hz) * duty_cycle * 1000_000_000;
-    toff =  (1000_000_000 / freq_hz) - ton;
+   ton = (1.0 / freq_hz) * duty_cycle * 1000_000_000;  //ns
+   toff =  (1000_000_000 / freq_hz) - ton;           //ns
   endtask
   
   task clkgen(input real phase, input real ton, input real toff);  
