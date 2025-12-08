@@ -1,7 +1,8 @@
  **DESIGN:**      
 _GUIDELINES FOR DESIGN:_  
 1. Ideally, we have to write Verilog/SystemVerilog code whose behavior remains consistent, regardless of the simulation order
-2. Only use blocking assignments for combinational logic.
+2. // SYNTHESIS GUIDELINE FOR COMBINATIONAL LOGIC: Make sure that every path through the block defines every output and internal signal.
+3. Only use blocking assignments for combinational logic.
 
 **TESTBENCH:**     
 _GUIDELINES FOR TESTBENCHES:_  
