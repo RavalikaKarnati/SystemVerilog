@@ -23,7 +23,7 @@ Once the verification plan is ready, there are two alternatives for applying tes
    Once the verification plan is ready, the next step is to choose the type of test to perform. There are two types of tests.
      1. Directed Tests
      2. Random Tests
-     3. Constrained Random Tests
+     3. Constrained Random Tests   
 **DIRECTED TESTS**:
    - We take testcase1 and apply to the DUT one by one and then anaylze the response. Once the design is behaving correctly for the testcase1, we consider this testcase1 as PASS athen move to the next testcase2.
    - We apply the next testcase2 to DUT, analyze, once the design behaves correctly, consider as PASS.
