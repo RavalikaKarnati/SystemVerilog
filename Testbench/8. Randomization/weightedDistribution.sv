@@ -45,8 +45,8 @@ class generator;
 
   rand bit [1:0] a, b;
   constraint data {
-    a dist { 0 := 30, [1:3] := 90 }; //0 = 30/300 , 1,2,3 = 90/300 
-    b dist {0 :/ 30, [1:3] :/ 90};  //0,1,2,3, = 30/120 = 0.25
+    a dist { 0 := 30, [1:3] := 90 }; //0 = 30/120 , 1,2,3 = 90/120 
+    b dist {0 :/ 30, [1:3] :/ 90};  //0 has 30/100, an value btw [1:3] has 90/100 chnace
   }
   
   constraint control {
