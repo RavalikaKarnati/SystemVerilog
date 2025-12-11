@@ -4,8 +4,8 @@ class generator;
   rand bit rd;
   
   constraint control {
-    wr dist { 0 := 30, 1:= 70};
-    rd dist {0:/ 30, 1:/70};
+    wr dist { 0 := 30, 1:= 70};  // //0 = 30/100 , 1 = 70/100
+    rd dist {0:/ 30, 1:/70}; //0 = 30/100 , 1 = 70/100
   }
 endclass
 
@@ -45,8 +45,8 @@ class generator;
 
   rand bit [1:0] a, b;
   constraint data {
-    a dist { 0 := 30, [1:3] := 90 }; //0 = 30/120 , 1,2,3 = 90/120 
-    b dist {0 :/ 30, [1:3] :/ 90};  //0 has 30/100, an value btw [1:3] has 90/100 chnace
+    a dist { 0 := 30, [1:3] := 90 }; // dist= 30+90+90+90= 300(total) :::::: 0 = 30/300 , 1,2,3 = 90/300 
+    b dist {0 :/ 30, [1:3] :/ 90};   // dist= 30+90= 120(total) :::: 0 has 30/120, an value btw [1:3] has 90/120 chance
   }
   
   constraint control {
